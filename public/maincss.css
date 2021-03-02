@@ -1,0 +1,83 @@
+#ct-left { width:33%; left: 0px; overflow-y: aut;height: calc(100vh - 60px); top: 60px;border: 1px solid orange;background-color: white}
+ #ct-right { width:65%; right: 0px; height: calc(100vh - 60px); overflow-y: aut ; top: 60px;}
+ 
+   .semester1 {  border: 1px solid red; display: flex;flex-wrap: wrap}
+   .semester2 {display: flex;flex-wrap: wrap;}
+   
+.btn-combos-right , .btn-combos-left {
+    outline-color: ;
+    outline: none;
+    background-color: lightblue;
+    border: none;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 30px;
+}
+#bl-action {height: 10; z-index:10; border : 1px solid green;}
+#calendar {overflow-y: auto; height: 84%; border: 1px solid red  ;z-index:1; top: 130px}
+.calendar-month{flex :25%}
+.btn-combos-right:hover , .btn-combos-left:hover {
+    background-color: white;
+    
+    outline: inherit;
+}
+#bl-combos { }
+.bl-combos-btn {
+    border: 1px solid gray;
+    display: fle;
+    height: 25px;
+    background-color: darkgray;
+}
+.combos-input {
+    width: 45px;
+    border: none ;
+    height: 25px;
+    background-color: cornsilk;
+    outline-color: lightcoral;
+    
+    padding-left:10px;
+	padding-right:10px;
+    border-radius: 2px;
+    font-size: 18px;
+    color: black;
+    margin: 0 3px 0 3px;
+}
+.bl-combos-list {
+    border: 0.5px solid grey;
+    width: 140px;
+    top: 0px;
+    background-color:papayawhip;
+    border-bottom-right-radius: 4px;
+     border-bottom-left-radius: 4px ;
+    padding:15p ;
+    height: 150px;
+    overflow-y:auto;
+    text-align: center;
+    display: block;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+	
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 1px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 1px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
