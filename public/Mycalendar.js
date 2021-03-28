@@ -2,7 +2,7 @@ class Calendar {
       
       constructor(CurrentDateObject, special=[] ){
         this.specialDays =special;
-        this.UseCurrentDateObject =   new Date(CurrentDateObject );
+        this.UseCurrentDateObject =   new Date(CurrentDateObject );  // this is the first date of the current month 
         this.CurrentDateObject    =   new Date(CurrentDateObject ); // this not affected by change
         //console.log(  this._DaysInLetter[this.CurrentDateObject.getDay()])
         this.CurrentMonthNumber =   this.CurrentDateObject.getMonth();   // Month number from 0 - 11 ex : 0 = january
@@ -22,18 +22,23 @@ class Calendar {
       }
         
       FillData(Counter, MonthBeginWithNumber, MonthEndWithNumber, dateOject, calendarObj){
-           // console.log(calendarObj.specialDays );
-          let special = calendarObj.specialDays.length == 0 ? null: isSpecialDay(calendarObj.specialDays,Counter-6 - MonthBeginWithNumber+1) ;
+            
+          let special = calendarObj.specialDays.length == 0 ? null: isSpecialDay(calendarObj.specialDays,Counter-6 - MonthBeginWithNumber+1) ; //console.log(special)
           
             if( Counter >= 0 && Counter <= 6) {
-                return elt("div",{style:"width:100%;height:100%;text-align:center;"},{},e=>{},this._DaysInLetter[Counter].substr(0,3)); 
+                return elt("div",{class:"td_div"},{},e=>{},this._DaysInLetter[Counter].substr(0,3)); 
             }
             if( Counter >= 7 && Counter <= 13) { 
                
                 if( MonthBeginWithNumber <= (Counter - 6)) {
-                   
+					
+                   let dteNo = Counter-6 - MonthBeginWithNumber+1 ; 
+				   let dteNoPadded = dteNo.toString().length == 1 ? "0"+dteNo : dteNo ; //console.log(dteNo.toString().length, dteNoPadded );
+				   let monthNo = dateOject.getMonth() +1;
+				   let monthPadded = monthNo.toString().length == 1 ? "0"+monthNo:monthNo;
+				   let isodate = dateOject.getFullYear() +"-"+monthPadded+"-"+dteNoPadded ;
                    return elt("div",
-                        {style:"width:100%;height:100%;text-align:center;","data-year":dateOject.getFullYear(),"data-month":dateOject.getMonth(),"data-day":Counter-6 - MonthBeginWithNumber+1,class:special != null ? special.class+ " cell-hover":"cell-hover",title:special? special.desc:"","data-desc":special? special.desc:""},
+                        {"data-year":dateOject.getFullYear(),"data-isodate":isodate,"data-month":monthNo-1,"data-day":Counter-6 - MonthBeginWithNumber+1,class:special != null ? special.class+ " cell-hover td_div":"cell-hover td_div",title:special? special.desc:"","data-desc":special? special.desc:""},
                         {},
                         e=>{},
                         Counter-6 - MonthBeginWithNumber+1
@@ -43,17 +48,26 @@ class Calendar {
             }
         
             if( Counter >= 14 && Counter <= 20) { 
-                
+				   let dteNo = Counter - 6 - MonthBeginWithNumber+1 ; 
+				   let dteNoPadded = dteNo.toString().length == 1 ? "0"+dteNo : dteNo ; 
+				   let monthNo = dateOject.getMonth() +1;
+				   let monthPadded = monthNo.toString().length == 1 ? "0"+monthNo:monthNo;
+				   let isodate = dateOject.getFullYear() +"-"+monthPadded+"-"+dteNoPadded ;
                 return elt("div",
-                           {style:"width:100%;height:100%;","data-year":dateOject.getFullYear(),"data-month":dateOject.getMonth(),"data-day":Counter - 6 - MonthBeginWithNumber+1,class:special? special.class+ " cell-hover":"cell-hover",title:special? special.desc:"","data-desc":special? special.desc:""},
+                           {"data-year":dateOject.getFullYear(),"data-isodate":isodate,"data-month":monthNo-1,"data-day":Counter - 6 - MonthBeginWithNumber+1,class:special? special.class+ " cell-hover td_div":"cell-hover td_div",title:special? special.desc:"","data-desc":special? special.desc:""},
                            {},
                            e=>{},
                            Counter - 6 - MonthBeginWithNumber+1)
             }
           
             if( Counter >= 21 && Counter <= 27) { 
+				   let dteNo = Counter - 6 - MonthBeginWithNumber+1 ; 
+				   let dteNoPadded = dteNo.toString().length == 1 ? "0"+dteNo : dteNo ; 
+				   let monthNo = dateOject.getMonth() +1;
+				   let monthPadded = monthNo.toString().length == 1 ? "0"+monthNo:monthNo;
+				   let isodate = dateOject.getFullYear() +"-"+monthPadded+"-"+dteNoPadded ;
                 return elt("div",
-                           {style:"width:100%;height:100%;","data-year":dateOject.getFullYear(),"data-month":dateOject.getMonth(),"data-day":Counter - 6 - MonthBeginWithNumber+1,class:special? special.class+ " cell-hover":"cell-hover",title:special? special.desc:"","data-desc":special? special.desc:""},
+                           {"data-year":dateOject.getFullYear(),"data-isodate":isodate,"data-month":monthNo-1,"data-day":Counter - 6 - MonthBeginWithNumber+1,class:special? special.class+ " cell-hover td_div":"cell-hover td_div",title:special? special.desc:"","data-desc":special? special.desc:""},
                            {}
                            ,e=>{},
                            Counter - 6 - MonthBeginWithNumber+1
@@ -61,8 +75,13 @@ class Calendar {
             }
           
             if( Counter >= 28 && Counter <= 34) {
+				   let dteNo = Counter - 6 - MonthBeginWithNumber+1 ; 
+				   let dteNoPadded = dteNo.toString().length == 1 ? "0"+dteNo : dteNo ;
+				   let monthNo = dateOject.getMonth() +1;
+				   let monthPadded = monthNo.toString().length == 1 ? "0"+monthNo:monthNo;
+				   let isodate = dateOject.getFullYear() +"-"+monthPadded+"-"+dteNoPadded ;
                 return elt("div",
-                           {style:"width:100%;height:100%;","data-year":dateOject.getFullYear(),"data-month":dateOject.getMonth(),"data-day":Counter - 6 - MonthBeginWithNumber+1,class:special? special.class+ " cell-hover":"cell-hover",title:special? special.desc:"","data-desc":special? special.desc:""},
+                           {"data-year":dateOject.getFullYear(),"data-isodate":isodate,"data-month":monthNo-1,"data-day":Counter - 6 - MonthBeginWithNumber+1,class:special? special.class+ " cell-hover td_div":"cell-hover td_div",title:special? special.desc:"","data-desc":special? special.desc:""},
                            {},
                            e=>{},
                            Counter - 6 - MonthBeginWithNumber+1
@@ -73,8 +92,13 @@ class Calendar {
                 if((Counter - 6- MonthBeginWithNumber+1) >MonthEndWithNumber){
                     return elt("div",{style:"width:100%;height:100%;"},{},e=>{},"")
                 } 
+				   let dteNo = Counter - 6 - MonthBeginWithNumber+1 ; 
+				   let dteNoPadded = dteNo.toString().length == 1 ? "0"+dteNo : dteNo ;
+				   let monthNo = dateOject.getMonth() +1;
+				   let monthPadded = monthNo.toString().length == 1 ? "0"+monthNo:monthNo;
+				   let isodate = dateOject.getFullYear() +"-"+monthPadded+"-"+dteNoPadded ;
                 return elt("div",
-                           {style:"width:100%;height:100%;","data-year":dateOject.getFullYear(),"data-month":dateOject.getMonth(),"data-day":Counter - 6- MonthBeginWithNumber+1,class:special? special.class + " cell-hover":"cell-hover" ,title:special? special.desc:"","data-desc":special? special.desc:""},
+                           {"data-year":dateOject.getFullYear(),"data-isodate":isodate,"data-month":monthNo-1,"data-day":Counter - 6- MonthBeginWithNumber+1,class:special? special.class + " cell-hover td_div":"cell-hover td_div" ,title:special? special.desc:"","data-desc":special? special.desc:""},
                            {},
                            e=>{},
                            Counter - 6- MonthBeginWithNumber+1
@@ -83,9 +107,14 @@ class Calendar {
             if( Counter >= 42 && Counter <= 48) { 
                 if((Counter - 6- MonthBeginWithNumber+1) >MonthEndWithNumber){
                     return elt("div",{style:"width:100%;height:100%;"},{},e=>{},"")
-                }  
+                } 
+				   let dteNo = Counter - 6 - MonthBeginWithNumber+1 ; 
+				   let dteNoPadded = dteNo.toString().length == 1 ? "0"+dteNo : dteNo ;
+				   let monthNo = dateOject.getMonth() +1;
+				   let monthPadded = monthNo.toString().length == 1 ? "0"+monthNo:monthNo;
+				   let isodate = dateOject.getFullYear() +"-"+monthPadded+"-"+dteNoPadded ;
                 return elt("div",
-                           {style:"width:100%;height:100%;","data-year":dateOject.getFullYear(),"data-month":dateOject.getMonth(),"data-day":Counter - 6- MonthBeginWithNumber+1,class:special? special.class+ " cell-hover":"cell-hover",title:special? special.desc:"","data-desc":special? special.desc:""},
+                           {"data-year":dateOject.getFullYear(), "data-isodate":isodate,"data-month":monthNo-1,"data-day":Counter - 6- MonthBeginWithNumber+1,class:special? special.class+ " cell-hover td_div":"cell-hover td_div",title:special? special.desc:"","data-desc":special? special.desc:""},
                            {},
                            e=>{},
                            Counter - 6- MonthBeginWithNumber+1
@@ -93,23 +122,26 @@ class Calendar {
             }
         }
         
-      Builds(){
+      Builds(MarkID = true){
           //console.log(this.CurrentDateObject)
+		 let divId = MarkID ==  true ? this.CurrentDateObject.getFullYear()+""+this.CurrentDateObject.getMonth(): "" ;
+		 let spanEvtCounter = MarkID ==  true ? "event-counter": "single-evt-counter" ;
          let CellCounter = 0 ; 
-         let  calend  = elt("div",{class:"calendar-month",style:"z-index:1;box-shadow:0px 0px;max-width:;margin:5px 10px;height:;border:1px solid green","data-calYear":this.CurrentDateObject.getFullYear(), "data-calMonth":this.CurrentDateObject.getMonth()},{onclick:e=>{ /*console.log(e)*/}},e=>{}, 
-          elt("div",{class:"title",style:"background-color:;"},{},e=>{},
-            elt("span",{id:"hour"},{onclick:(e)=> { }},e=>{},this.MonthDisplayed(this.CurrentDateObject))),
+         let  calend  = elt("div",{class:"calendar-month",style:"z-index:1;box-shadow:0px 0px;max-width:;margin:5px 10px;height:;border:3px solid #ECF0F1","data-calYear":this.CurrentDateObject.getFullYear(), "data-calMonth":this.CurrentDateObject.getMonth() , id: divId },{onclick:e=>{ highLightCurrentMonth()}},e=>{}, 
+          elt("div",{class:"bl_dte_title"},{},e=>{},
+            elt("span",{class:"dte_title"},{onclick:(e)=> { }},e=>{},this.MonthDisplayed(this.CurrentDateObject)), elt("span",{class:spanEvtCounter},{onclick:(e)=> { }},e=>{},"")),
           elt("div",{id:"today"},{},e=>{} /*this.LIB_today(this.CurrentDateObject)*/),
-          elt("table",{style:"width:100%;background-color:gainsboro; height:240px; width:230p",class:"calendar updateColor"},{},e=>{},...[...Array(7).keys()].map( (n)=>{
+          elt("table",{style:"width:100%;background-color:gainsboro;",class:"calendar updateColor"},{},e=>{},...[...Array(7).keys()].map( (n)=>{
                         return elt("tr",{},{},e=>{},...[...Array(7).keys()].map( ()=>{
-                            return elt("td",{class:this.dayNum,style:"cursor:pointer;"},
+                            return elt("td",{class:this.dayNum,style:""},
                                 {onclick:(e)=>{}},this.CellHightLight,this.FillData(CellCounter++,this.MonthFirstDateWeekNumber+1,this.MonthLastDateNumber, this.CurrentDateObject ,this)
                             ); 
                             })
                         );
 								
-                        })
+                        }) 
                     )); 
+		 //console.log( calend)
           return calend ;
       }
       
