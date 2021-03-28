@@ -1,32 +1,78 @@
-<div class="fixed">
-
-<div id="ct-left" class="fixed">
+<div id="block-adds" style="width:102%; position:fixed; height:100%; display:none;background-color:RGBA(144, 139, 146,0.8);z-index:90000;top:0px;left:0px"> 
     
- <div id="sub-ct-currmonth">
-     <div id="bl-currentmonth"></div>
-     <div id="bl-event-list"></div>
- </div>
-    
+    <div style="width;100%;height:20%;display:flex;justify-content:center; aligns-items:center">
+        
+     <div id="block-event" style="position:absolute;top:0px;width:70%;background-color:white; display:flex;justify-content:center; aligns-items:center;overflow:auto">
+         
+        <div style="position:relativ;left:0px;top:50px;width:70%">
+            <h2 data-eventdate=""><input type="hidden" id="dte_event"><span id="dte_string">Lundi  Mars 2021 </span></h2>
+            <h3 class="event-label"> EVENT TYPE</h3>
+            <select id="type_event">
+                <option value="Evenement">Evenement</option>
+                <option value='Fete'> Fete</option>
+            </select>
+             <h3 class="event-label"> EVENT TITLE</h3>
+            <input type="text" id="title_event" placeholder="Your title">
+             <h3 class="event-label"> EVENT COMMENT</h3>
+            <textarea id="comment_event"></textarea>
+            <div id="bl-btn-add-evt">
+                <button id="btn-cancel-evt" class="btn-cancel"> Cancel</button>
+                <button id="add-rdv" class="btn-valid"> Add event</button>
+            </div>
+        </div>
+       </div>
+    </div>
 </div>
 
+<div style="margin-top:50px">
 
-<div id="ct-right" class="fixed">
+    <div style="width:100%;height:50px;background-color:green; position:fixed;top:0px;z-index:2000;display:flex;justify-content:space-between"> 
+        <div> <button id="btn-add-event" class="btn-valid">Add new Event</button></div>
+        <div> <span id="modeperiod">A </span> <input type="range" id="selMode"><span id="modeyear">All Events </span >  <span id="all-event-counter"></span></div>
     
-   <div id="bl-action" class="fixed" > 
-     <div id="bl-info-cal" >  calendar</div>
-     <div id="bl-ct" style="z-index:1500;">  
-      <div id="bl-combos" class="bl-combos">
+    </div>
+    
+    
+    <div style="display:flex; z-index:1000; border:2p solid blue">
+        
+        <div style="border:2p solid red; width:46%; height:100vh;overflow:auto;">
+            <div style="width:100%;height:250px;background-color:lightblue;position:fixed;width:43.6%;z-index:5" id="bl-currentmonth"></div>
+            <div id="bl-event-list" style="position:relative;width:100%;border:1 solid blue;top:250px;height:;z-index:2" > 
+            
+      <div id="sub-event-bl">  
+         
+          <div id="tous-lesrdv" style="background-color:re">
+            
+          </div> 
+      </div> 
+     </div>
+        </div>
+        <div  style="border:20 solid yellow;height:100vh; width:56%;overflow:auto" id="ct-right">
+            <div id="bl-action" style="width:53.5%;height:80px;background-color:red;position:fixed;z-index:950">
+                <div id="bl-info-cal" > 
+                    <div>Calendar</div>
+                    <div> <span id="dte-of-today"></span><button id="btn-today" class="btn-valid"> Today</button></div>
+                </div>
+                <div id="bl-ct" style="z-index:1500;width:100%">  
+                   
           
-       <div id="bl-combos-btn" class="bl-combos-btn">
-         <button id="btn-combos-leftyear" class="btn-combos-left combo-year"> <svg class='' height=20 width=20 viewBox='0 0 24 24'><path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/></svg> </button>
-          <input type="text" placeholder="Entrer une annee" id="selected-year" class="combos-input" >
-        <button id="btn-combos-rightyear" class="btn-combos-right"> <svg class='' height=20 width=20 viewBox='0 0 24 24'><path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/></svg></button>
+                        <div id="bl-combos-btn" class="bl-combos-btn">
+                            <button id="btn-combos-leftyear" class="btn-combos-left combo-year" style="flex-grow: 0"> <svg class='' height=20 width=20 viewBox='0 0 24 24'><path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/></svg> </button>
+                            <input type="text" placeholder="Entrer une annee" id="selected-year" class="combos-input" style="flex-grow: 1">
+                            <button id="btn-combos-rightyear" class="btn-combos-right" style="flex-grow: 0"> <svg class='' height=20 width=20 viewBox='0 0 24 24'><path d='M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z'/></svg></button>
+                            <div id="bl-close-list" style="flex-grow: 10 ; border:1p solid re;">
+                            <span id="close-list" style="float:right"> ×</span>
+                            </div>
+                        </div><div class="bl-combos-list" id="combos-list-year"> </div> 
+                 
+                </div>
+           </div>
+           <div id="calendar" style="position:relative; z-index:900"></div>
+
        </div>
        
-       <div class="bl-combos-list" id="combos-list-year"> </div> 
-      </div> 
-   </div>
-  </div> 
- <div id="calendar" class="fixed"></div>
+     </div>
+    
+     <div style="width:100%;height:120px; background-color:gray;"></div>
 </div>
-</div>
+
