@@ -1,9 +1,9 @@
-#ct-left { width:33%; left: 0px; overflow-y: aut;height: calc(100vh - 60px); top: 60px;border: 1px solid orange;background-color: white}
- #ct-right { width:65%; right: 0px; height: calc(100vh - 60px); overflow-y: aut ; top: 60px;}
+body { background-color: #F0F3F4}
  
-   .semester1 {  border: 1px solid red; display: flex;flex-wrap: wrap}
-   .semester2 {display: flex;flex-wrap: wrap;}
-   
+
+.semester1 {  border: ; display: flex;flex-wrap: wrap}
+.semester2 {display: flex;flex-wrap: wrap;}
+
 .btn-combos-right , .btn-combos-left {
     outline-color: ;
     outline: none;
@@ -14,8 +14,10 @@
     border-radius: 3px;
     width: 30px;
 }
-#bl-action {height: 10; z-index:10; border : 1px solid green;}
-#calendar {overflow-y: auto; height: 84%; border: 1px solid red  ;z-index:1; top: 130px}
+
+#calendar {overflow-y: aut; height: 85%; border:10p solid green   ;z-index:1; top: 100px}
+/* is inside #calendar*/
+
 .calendar-month{flex :25%}
 .btn-combos-right:hover , .btn-combos-left:hover {
     background-color: white;
@@ -23,11 +25,20 @@
     outline: inherit;
 }
 #bl-combos { }
+#bl-info-cal { padding: 10px; display: flex; justify-content: space-between}
+#bl-info-cal #btn-today { }
+#close-list { padding: ; background-color: azure; font-size: 18px; height: 100%;display: none;height: 25px;width: 30px; text-align: center ; }
+#close-list:hover {background-color: chartreuse; cursor: pointer}
+#bl-close-list { display: flex; justify-content: flex-end}
+
+.search-year-block:hover {opacity: 0.8; color:white}
+.search-year-block {letter-spacing: 2px;font-size: 12px;cursor: pointer ; display: inline-block; margin-left: 5px;margin-bottom: 5px; border: 1px solid #FBFCFC;padding: 3px; background-color: #3498DB;border-radius: 3px; }
 .bl-combos-btn {
     border: 1px solid gray;
-    display: fle;
+    display: flex;
     height: 25px;
     background-color: darkgray;
+    padding: 5px
 }
 .combos-input {
     width: 45px;
@@ -45,24 +56,122 @@
 }
 .bl-combos-list {
     border: 0.5px solid grey;
-    width: 140px;
+    width: 100%;
     top: 0px;
     background-color:papayawhip;
     border-bottom-right-radius: 4px;
      border-bottom-left-radius: 4px ;
     padding:15p ;
-    height: 150px;
+    height: 250p;
     overflow-y:auto;
-    text-align: center;
-    display: block;
+    text-align: ;
+    display: none;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 	
 }
+.calendar-month table td {
+   
+    
+    cursor:pointer;
+    font-size: 12px;
+    
+}
+
+table, th, td {
+  border: 1px solid #EAEDED;
+  border-collapse: collapse;
+  font-family: arial, sans-serif;
+}
+th, td {
+   width:110px;
+    height: 25px;
+}
+/*all div inside td */
+.td_div {
+    width:100%;
+    height:100%;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-hover:hover {
+    border: 2px solid #D5D8DC;
+    background-color: #5DADE2 ;
+}
+
+.bl_dte_title {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: #1C2833;
+    justify-content: space-between;
+    color: aliceblue;
+    padding: 0 12px 0 5px;
+}
+.dte_title {
+    font-family: Lucida Bright ;
+    font-size: 16px;
+}
+
+#dte-of-today{
+    background-color: lightyellow;
+    margin-right: 6px;
+    padding: 10px;
+}
+/* EEVENT LIST BLOC*/
 
 
+#sub-event-bl {
+    width:98.5%;
+    height: ;
+    border: 1px solid gray;
+    background-color: aliceblue;
+    overflow-y: auto;
+}
+
+.card-event {
+    background-color:floralwhite;
+    margin-bottom: 5px;
+    padding: 20px 10px;
+}
+
+.card-event:hover {
+    opacity: 0.7
+}
+#block-event #title_event {
+    display: block;
+    cursor: pointer;
+}
+#block-event { 
+
+border: 1px solid #EBDEF0;
+    display: none;
+    background-color: /*RGBA(144, 139, 146,0.8) */;
+    width: 98%;
+    height: 90%;
+    align-items: ;
+}
+#sub-event-bl textarea {
+    display: block;
+}
+
+#bl-btn-add-evt { 
+    display: flex;
+    justify-content: space-between
+}
+
+/* CALENDAR CARD */
+.calendar-card-block{ display: flex;margin-bottom: 5px}
+.calendar-card-date{ width: 30%}
+.calendar-card-body { width:70%}
+.calendar-card-block{ background-color: cornflowerblue;opacity: 0.8}
+.calendar-card-block:hover{opacity: 1 ;cursor: pointer}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+    
 }
 
 /* Track */
@@ -80,4 +189,52 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #b30000; 
+}
+
+/* add event */
+#comment_event{
+  width: 100%;
+    height: 30%;
+    font-family: serif;
+    font-size: 18px;
+    margin-bottom: 5p;
+}
+#title_event{
+    width: 100%;
+    height: 30px;
+    font-size:20px;
+    margin-bottom: 5p;
+}
+
+#type_event{
+    width: 101%;
+    height: 30px;
+    font-size:20px;
+    margin-bottom: 5p;
+}
+.event-label{
+    color: dodgerblue;
+    margin-bottom: 2px;
+}
+
+.btn-valid {
+    outline: none;
+    background-color: dodgerblue;
+    border: none;
+    padding: 5px 10px;
+    color: wheat;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    outline: none;
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    color: wheat;
+    font-size: 16px;
+    border-radius: 5px;
+     cursor: pointer;
 }
